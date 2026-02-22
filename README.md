@@ -131,7 +131,7 @@ jaleel-portfolio/
 
 ## 📞 Contact & Connect
 
-- **Email:** [abduljaleelamj10@gmail.com](mailto:abduljaleelamj10@gmail.com)
+- **Email:** [abduljaleelam10@gmail.com](mailto:abduljaleelam10@gmail.com)
 - **LinkedIn:** [Abdul Jaleel](https://www.linkedin.com/in/abdul-jaleel-am/)
 - **GitHub:** [Abdul-Jaleel-10](https://github.com/Abdul-Jaleel-10)
 - **Portfolio:** [View Live](https://abdul-jaleel-10.github.io/jaleel-portfolio)
