@@ -65,7 +65,7 @@ npm run build
 
 ## Contact
 - LinkedIn: [Abdul Jaleel](https://www.linkedin.com/in/abdul-jaleel-am/)
-- Email: abduljaleelamj10@gmail.com
+- Email: abduljaleelam10@gmail.com
 
 ## 🚀 Live Demo
 [View Portfolio](https://abdul-jaleel-10.github.io/jaleel-portfolio)
