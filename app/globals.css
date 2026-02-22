@@ -1,0 +1,386 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply scroll-smooth;
+  }
+  
+  ::selection {
+    @apply bg-cyan-400/20 text-cyan-300;
+  }
+}
+
+@layer components {
+  /* Navigation Links */
+  .nav-link {
+    @apply relative text-slate-300 hover:text-cyan-400 transition-colors duration-300;
+  }
+  
+  /* Buttons */
+  .btn-primary {
+    @apply relative overflow-hidden px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-400 text-slate-900 font-semibold rounded-lg 
+           transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/40 hover:scale-105
+           active:scale-95 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply relative overflow-hidden px-8 py-3 bg-slate-700/50 text-cyan-300 font-semibold rounded-lg 
+           transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60
+           hover:shadow-lg hover:shadow-cyan-500/20 hover:scale-105
+           active:scale-95 disabled:opacity-50 disabled:pointer-events-none;
+  }
+  
+  /* Cards */
+  .card {
+    @apply relative overflow-hidden bg-slate-700/30 rounded-xl p-6 border border-slate-600/50
+           hover:border-cyan-400/30 transition-all duration-300
+           backdrop-blur-sm transform hover:translate-y-[-4px] hover:shadow-xl hover:shadow-cyan-500/10;
+  }
+
+  .achievement-card {
+    @apply relative overflow-hidden bg-slate-700/40 rounded-xl p-6 border border-cyan-400/20
+           hover:border-cyan-400/50 transition-all duration-300
+           backdrop-blur-sm transform hover:translate-y-[-4px] hover:shadow-xl hover:shadow-cyan-500/20;
+  }
+
+  .achievement-card-large {
+    @apply relative overflow-hidden bg-slate-700/40 rounded-xl p-8 border border-cyan-400/20
+           hover:border-cyan-400/50 transition-all duration-300
+           backdrop-blur-sm;
+  }
+
+  .card-skill {
+    @apply relative overflow-hidden bg-slate-700/40 rounded-xl p-8 border border-cyan-400/20
+           hover:border-cyan-400/50 transition-all duration-300
+           backdrop-blur-sm transform hover:translate-y-[-4px] hover:shadow-xl hover:shadow-cyan-500/20;
+  }
+
+  .card-project {
+    @apply relative overflow-hidden bg-slate-700/40 rounded-xl p-8 border border-cyan-400/20
+           hover:border-cyan-400/50 transition-all duration-300
+           backdrop-blur-sm transform hover:translate-y-[-4px] hover:shadow-xl hover:shadow-cyan-500/20;
+  }
+
+  /* Shining Text */
+  .shining-text {
+    @apply relative inline-block;
+    background: linear-gradient(
+      90deg,
+      #60A5FA,
+      #FFD700,
+      #60A5FA
+    );
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: shine 3s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
+  }
+
+  .shining-text::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    animation: shine-line 3s ease-in-out infinite;
+  }
+
+  /* Section Animations */
+  .section-animate {
+    @apply opacity-0;
+  }
+
+  .section-animate.animate-in {
+    animation: sectionPop 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  }
+
+  /* Title Animation */
+  .titleJiggle {
+    animation: titleJiggle 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  }
+}
+
+/* Technical Background Styles */
+.bg-grid-pattern {
+  @apply fixed inset-0 z-0;
+  background: 
+    linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridMove 20s linear infinite;
+}
+
+.circuit-line {
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, 
+    transparent,
+    rgba(96, 165, 250, 0.3),
+    rgba(34, 211, 238, 0.3),
+    transparent
+  );
+  animation: circuit-flow 8s linear infinite;
+  opacity: 0;
+}
+
+/* Floating Code */
+.floating-code {
+  @apply fixed z-0;
+  position: fixed;
+  font-family: 'Consolas', 'Monaco', monospace;
+  color: rgba(96, 165, 250, 0.4);
+  pointer-events: none;
+  z-index: 0;
+  font-size: 14px;
+  white-space: nowrap;
+  text-shadow: 0 0 5px rgba(96, 165, 250, 0.2);
+  animation: floatCode 8s linear forwards;
+}
+
+/* Matrix Rain Effect */
+.matrix-rain {
+  @apply fixed inset-0 z-0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(0deg, 
+    transparent,
+    rgba(59, 130, 246, 0.08) 40%,
+    rgba(34, 211, 238, 0.08) 60%,
+    transparent
+  );
+  animation: matrixRain 20s linear infinite;
+  mask-image: radial-gradient(
+    circle at center,
+    transparent 0%,
+    black 30%
+  );
+}
+
+.bg-gradient-radial {
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    rgba(15, 23, 42, 0.95) 100%
+  );
+}
+
+/* Animations */
+@keyframes shine {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shine-line {
+  0% { transform: translateX(-100%); opacity: 0; }
+  50% { transform: translateX(0%); opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translateY(0);
+    background-position: 0 0;
+  }
+  100% {
+    transform: translateY(40px);
+    background-position: 40px 40px;
+  }
+}
+
+@keyframes floatCode {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes circuit-flow {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes matrixRain {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 1000px;
+  }
+}
+
+@keyframes titleJiggle {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-5deg);
+  }
+  25% {
+    transform: scale(1.2) rotate(5deg);
+  }
+  50% {
+    transform: scale(0.9) rotate(-3deg);
+  }
+  75% {
+    transform: scale(1.1) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes linkJiggle {
+  0% {
+    transform: scaleX(0);
+  }
+  50% {
+    transform: scaleX(1.2);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes lineGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes sectionPop {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.circuit-line:nth-child(1) { top: 20%; animation-delay: 0s; }
+.circuit-line:nth-child(2) { top: 40%; animation-delay: 2s; }
+.circuit-line:nth-child(3) { top: 60%; animation-delay: 4s; }
+.circuit-line:nth-child(4) { top: 80%; animation-delay: 6s; }
+
+/* Mobile Optimization - Disable animations for better performance */
+@media (max-width: 768px) {
+  .shining-text {
+    animation: none;
+    text-shadow: none;
+  }
+
+  .circuit-line {
+    animation: none;
+    display: none;
+  }
+
+  .floating-code {
+    animation: none;
+    display: none;
+  }
+
+  .matrix-rain {
+    animation: none;
+    display: none;
+  }
+
+  .bg-grid-pattern {
+    animation: none;
+    display: none;
+  }
+
+  .card {
+    @apply hover:translate-y-0 hover:shadow-md;
+  }
+
+  .achievement-card {
+    @apply hover:translate-y-0 hover:shadow-md;
+  }
+
+  .achievement-card-large {
+    @apply hover:translate-y-0 hover:shadow-md;
+  }
+
+  .card-skill {
+    @apply hover:translate-y-0 hover:shadow-md;
+  }
+
+  .card-project {
+    @apply hover:translate-y-0 hover:shadow-md;
+  }
+
+  body {
+    @apply scroll-smooth;
+    scrollbar-width: thin;
+  }
+}
+
+/* Reduce animations on low-end devices */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
