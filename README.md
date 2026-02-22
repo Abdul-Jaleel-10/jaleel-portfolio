@@ -80,4 +80,4 @@ npm run build
 ## 🔗 Quick Links
 - [My Projects](#)
 - [Skills](#)
-- [Contact Me](#) 
+- [Contact Me](#)
